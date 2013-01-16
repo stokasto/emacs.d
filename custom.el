@@ -25,8 +25,7 @@
 (require 'window-number)
 (eval-after-load "window-number"
   '(progn
-     ;(window-number-mode)
-     (window-number-meta-mode)
+     (window-number-mode)
      (winner-mode 1)))
 
 (require 'buffer-move)

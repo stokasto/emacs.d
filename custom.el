@@ -12,7 +12,7 @@
 (global-set-key (kbd "C-x _") 'shrink-window)
 (global-set-key (kbd "C-x ^") 'enlarge-window)
 ; set the default font to terminus
-(set-default-font "Terminus-12")
+(set-default-font "Terminus-14")
 
 (defun match-paren (arg)
    "Go to the matching paren if on a paren; otherwise insert %."

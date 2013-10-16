@@ -12,7 +12,10 @@
 (global-set-key (kbd "C-x _") 'shrink-window)
 (global-set-key (kbd "C-x ^") 'enlarge-window)
 ; set the default font to terminus
-(set-default-font "Terminus-14")
+;(set-default-font "Terminus-14")
+; do the same for all new frames
+(add-to-list 'default-frame-alist 
+      '(font . "Terminus-14"))
 
 (defun match-paren (arg)
    "Go to the matching paren if on a paren; otherwise insert %."
@@ -96,10 +99,10 @@
 (defun linux-c-indent ()
   "adjusted defaults for C/C++ mode use with the Linux kernel."
   (interactive)
-  (setq tab-width 8)
+  (setq tab-width 4)
   ;;force spaces, to work with dumber editors
   (setq indent-tabs-mode nil)
-  (setq c-basic-offset 8))
+  (setq c-basic-offset 4))
 
 (add-hook 'c-mode-hook 'linux-c-indent)
 (add-hook 'c-mode-hook (lambda() (c-set-style "K&R")))
@@ -113,11 +116,11 @@
 
 ; load ros package
 ;; Load the library and start it up
-(require 'rosemacs)
-(invoke-rosemacs)
+;(require 'rosemacs)
+;(invoke-rosemacs)
 ;; Optional but highly recommended: add a prefix for quick access
 ;; to the rosemacs commands
-(global-set-key "\C-x\C-r" ros-keymap)
+;(global-set-key "\C-x\C-r" ros-keymap)
 
 
 ;; add melpa repository as it contains way more packages!
@@ -129,5 +132,26 @@
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-;; make sure .m files are interpreted as matlab/octave
-(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+;; make sure .m files are interpreted as matlab
+(add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
+;; also interpret cuda as c
+;; make sure .m files are interpreted as matlab
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.cuh\\'" . c-mode))
+
+
+; setup hippie expand
+(setq hippie-expand-try-functions-list
+      '(try-expand-all-abbrevs
+        try-expand-dabbrev
+        try-expand-dabbrev-from-kill
+        try-expand-dabbrev-all-buffers
+        try-complete-file-name-partially
+        try-complete-file-name
+        ;;         try-expand-list
+        ;;         try-expand-line
+        ;;        try-complete-lisp-symbol-partially
+        ;;        try-complete-lisp-symbol
+        ))
+; use it instead of standard dabbrev
+(global-set-key "\M-/" 'hippie-expand)  

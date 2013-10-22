@@ -25,11 +25,11 @@
          (t (self-insert-command (or arg 1)))))
 
 ; configure window number
-(require 'window-numbering)
-(eval-after-load "window-numbering"
+(require 'window-number)
+(eval-after-load "window-number"
   '(progn
-     (window-numbering-mode)
-     ;(window-numbering-meta-mode)
+     (window-number-mode)
+     (window-number-meta-mode)
      (winner-mode 1)))
 
 (require 'buffer-move)

@@ -16,7 +16,7 @@
 ; create a list of packages that we want from el-get
 (setq my-el-get-packages  
       (append  
-       '(auctex window-numbering buffer-move color-theme-tomorrow git-commit-mode magit org-mode lua-mode)  
+       '(auctex window-number buffer-move color-theme-tomorrow git-commit-mode magit org-mode lua-mode)  
        (mapcar 'el-get-source-name el-get-sources))) 
 
 ; sync all the things

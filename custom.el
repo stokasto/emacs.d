@@ -25,11 +25,11 @@
          (t (self-insert-command (or arg 1)))))
 
 ; configure window number
-(require 'window-number)
-(eval-after-load "window-number"
+(require 'window-numbering)
+(eval-after-load "window-numbering"
   '(progn
-     (window-number-mode)
-     (window-number-meta-mode)
+     (window-numbering-mode)
+     ;(window-numbering-meta-mode)
      (winner-mode 1)))
 
 (require 'buffer-move)
@@ -133,7 +133,8 @@
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 ;; make sure .m files are interpreted as matlab
-(add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
+;(add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 ;; also interpret cuda as c
 ;; make sure .m files are interpreted as matlab
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c-mode))

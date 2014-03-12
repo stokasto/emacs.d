@@ -139,6 +139,9 @@
 ;; make sure .m files are interpreted as matlab
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c-mode))
 (add-to-list 'auto-mode-alist '("\\.cuh\\'" . c-mode))
+; setup julia mode
+(autoload 'julia-mode "julia-mode" "Julia editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.jl$" . julia-mode))
 
 
 ; setup hippie expand

@@ -2,6 +2,7 @@
 
 ; enable the tomorrow color theme
 (color-theme-tomorrow-night)
+;(color-theme-leuven)
 ; show column numbers by default
 (column-number-mode 1)
 ; enable line numbering
@@ -130,8 +131,13 @@
 
 ; setup lua-mode
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+;(defvar lua-default-application "/home/k-gee/local/torch_jit/bin/th")
+(defvar lua-default-application "/home/k-gee/local/bin/torch")
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+(setq lua-mode-map (make-sparse-keymap))
+(define-key lua-mode-map (kbd "C-c C-l") 'lua-send-current-line)
+(define-key lua-mode-map (kbd "C-c C-r") 'lua-send-region)
 ;; make sure .m files are interpreted as matlab
 ;(add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
@@ -139,7 +145,6 @@
 ;; make sure .m files are interpreted as matlab
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c-mode))
 (add-to-list 'auto-mode-alist '("\\.cuh\\'" . c-mode))
-
 
 ; setup hippie expand
 (setq hippie-expand-try-functions-list
@@ -156,3 +161,5 @@
         ))
 ; use it instead of standard dabbrev
 (global-set-key "\M-/" 'hippie-expand)  
+
+

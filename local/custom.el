@@ -41,6 +41,7 @@
 
 ; use pdflatex
 (setq latex-run-command "pdflatex")
+(setq TeX-PDF-mode t)
 
 ; org mode specifics
 (define-key global-map (kbd "<f9>") 'org-capture)

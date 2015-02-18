@@ -6,7 +6,10 @@
   (tooltip-mode -1)
   (tool-bar-mode -1))
 
-(menu-bar-mode -1)
+;; turn of menu bar mode
+(when (or window-system (and (>= emacs-major-version 23) (server-running-p)))
+  (if (fboundp 'menu-bar-mode)
+      (menu-bar-mode 0)))
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 
 (mouse-wheel-mode t)

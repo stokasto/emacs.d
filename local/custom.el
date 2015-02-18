@@ -95,6 +95,9 @@
 
 ; set the c style
 
+; default to c++ for .h and .cc files
+(add-to-list 'auto-mode-alist '("\\.cc$" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 ;function to implement Indentation style
 ;Documentation/CodingStyle (kernel)
 (defun linux-c-indent ()
@@ -131,8 +134,8 @@
 
 ; setup lua-mode
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-;(defvar lua-default-application "/home/k-gee/local/torch_jit/bin/th")
-(defvar lua-default-application "/home/k-gee/local/bin/torch")
+(defvar lua-default-application "/home/k-gee/local/bin/th")
+;(defvar lua-default-application "/home/k-gee/local/bin/torch")
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 (setq lua-mode-map (make-sparse-keymap))

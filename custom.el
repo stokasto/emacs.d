@@ -1,5 +1,4 @@
 ;;; CUSTOM CONFIGURATION OF PACKAGES ;;;
-
 ; enable the tomorrow color theme
 (color-theme-tomorrow-night)
 ;(color-theme-leuven)
@@ -167,3 +166,5 @@
 (global-set-key "\M-/" 'hippie-expand)  
 
 
+; setup printing
+ (setq lpr-command "gtklp")

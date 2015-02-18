@@ -27,7 +27,7 @@
 (load "misc.el")
 (load "bindings.el")
 (load "custom.el")
-(load "mu4e_config.el")
+;(load "mu4e_config.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

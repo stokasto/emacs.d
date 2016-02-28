@@ -18,7 +18,7 @@
 ; create a list of packages that we want from el-get
 (setq my-el-get-packages  
       (append  
-       '(auctex window-number buffer-move color-theme color-theme-tomorrow color-theme-leuven git-commit-mode magit org-mode lua-mode smtpmail-multi emacs-async multiple-cursors thing-cmds)
+       '(auctex window-number buffer-move color-theme color-theme-tomorrow color-theme-leuven git-commit-mode magit org-mode lua-mode smtpmail-multi emacs-async multiple-cursors thing-cmds pkg-info elixir)
        (mapcar 'el-get-source-name el-get-sources))) 
 ; we assume mu is installed via the debian repos
 

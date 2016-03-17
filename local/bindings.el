@@ -74,6 +74,8 @@
 ;;(global-set-key (kbd "C-c m c") 'mc/edit-lines)
 
 ;; marking/unmarking next
+(global-set-key (kbd "C-c ]") 'mc/mark-next-like-this-word)
+(global-set-key (kbd "C-c [") 'mc/mark-previous-like-this-word)
 (global-set-key (kbd "C-c /") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c .") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c '") 'mc/unmark-next-like-this)
@@ -90,10 +92,12 @@
 ;;; Occasionally useful
 (define-key stokasto/mc-map "d"
   #'mc/mark-all-symbols-like-this-in-defun)
-(define-key stokasto/mc-map "r" #'mc/reverse-regions)
+(define-key stokasto/mc-map "r" #'mc/mark-all-in-region)
+(define-key stokasto/mc-map "\C-r" #'mc/reverse-regions)
 (define-key stokasto/mc-map "s" #'mc/sort-regions)
 (define-key stokasto/mc-map "l" #'mc/edit-lines)
 (define-key stokasto/mc-map "\C-a"
   #'mc/edit-beginnings-of-lines)
 (define-key stokasto/mc-map "\C-e"
     #'mc/edit-ends-of-lines)
+(global-set-key (kbd "C-s-<mouse-1>") 'mc/add-cursor-on-click)

@@ -85,6 +85,9 @@
 	   ("n" "Note" entry (file+datetree "~/org/note.org")
 	    "* %? \n Entered on %U \n %a")))))
 
+; setup python mode
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
 ; get the interesting bits from emacs-for-python mode
 
 ;(require 'epy-setup) ;; setup other loads, it is required!
@@ -171,3 +174,7 @@
 
 ; setup printing
  (setq lpr-command "gtklp")
+
+
+(add-hook 'java-mode-hook (lambda ()
+                            (setq c-basic-offset 8)))
